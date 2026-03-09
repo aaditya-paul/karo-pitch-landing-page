@@ -1,0 +1,111 @@
+/* App-specific styles */
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(255, 212, 0, 0.3);
+  color: white;
+}
+
+/* Focus styling */
+*:focus-visible {
+  outline: 2px solid #2B7FFF;
+  outline-offset: 2px;
+}
+
+/* Button hover transitions */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Image loading placeholder */
+img {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Prevent text selection on decorative elements */
+.corner-frame,
+.chevron-band,
+.grain-overlay {
+  user-select: none;
+}
+
+/* Responsive adjustments for corner frame */
+@media (max-width: 1024px) {
+  .corner-frame {
+    width: 28vw;
+    height: 18vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .corner-frame {
+    width: 35vw;
+    height: 15vh;
+    top: 4vh;
+    left: 3vw;
+  }
+  
+  .chevron-band {
+    width: 32px;
+  }
+}
+
+/* Animation for floating elements */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 4s ease-in-out infinite;
+}
+
+/* Card hover lift effect */
+.card-stage {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Ensure proper z-index stacking */
+section {
+  position: relative;
+}
+
+/* Form input focus states */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 3px rgba(43, 127, 255, 0.15);
+}
+
+/* Mobile touch improvements */
+@media (hover: none) {
+  .startup-card:hover {
+    transform: none;
+  }
+  
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
